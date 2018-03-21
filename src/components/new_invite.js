@@ -11,9 +11,16 @@ import axios from 'axios';
 class newInviteForm extends Component {
 
   SubmitInvitation(sender, recipient, message) {
-    axios.post('http://localhost:9000/invitations', { sender, recipient, message })
-    .then(response => {
+    axios.post('http://localhost:9000/invitations', 
+      { 
+        sender: sender, 
+        recipient: recipient, 
+        message: message })
+    .then( function(response) {
       console.log(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
     });
   };
 
@@ -21,19 +28,16 @@ class newInviteForm extends Component {
     return (
       <div className="newInviteForm">
         <form>
-          <label>
-            Sender:
-            <input type="email" name="sender" />
-          </label>
-          <label>
-            Recipient:
-            <input type="email" name="recipient" />
-          </label>
-          <label>
-            Message:
-            <input type="text" name="message" />
-          </label>
-          <input type="submit" value="Submit" onClick={this.SubmitInvitation.bind(this)} />
+          <div>
+            <label>
+              <input type="email" placeholder="sender's email" name="sender" />
+              <input type="email" placeholder="recipient's email" name="recipient" />
+              <input type="text" placeholder="message" name="message" />
+            </label>
+            <div>
+            <input type="submit" value="Submit" onClick={this.SubmitInvitation.bind(this)} />
+            </div>
+          </div>
         </form>
       </div>
     );

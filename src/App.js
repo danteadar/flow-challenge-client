@@ -9,13 +9,13 @@ class App extends Component {
           
           <h1 className="App-title">Please Log in to Continue</h1>
           <form>
-            <label>
-              Name:
-              <input type="text" name="email" />
-              Password:
-              <input type="password" name="password" />
+            <div>
+              <input type="text" placeholder="email" name="email" />
+            </div>
+            <div>
+              <input type="password" placeholder="password" name="password" />
 
-            </label>
+            </div>
             <input type="submit" value="Submit" />
           </form>
         </header>
